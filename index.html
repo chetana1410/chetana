@@ -2,18 +2,59 @@
 <html>
 
     <head>
-    	<title>FUU WEBSITE!!!</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+    	<title>FORM VALIDATION</title>
+        <script type="text/javascript">
+            function validate() {
+                var username=document.getElementById('uname');
+                var password=document.getElementById('pass');
+                //var regex=/E00/;
+                //if (regex.test(username))
+                //{
+                    //alert('Valid Username')
+                //}
+
+                else if (username.value.trim()=='')
+                {
+                    //alert('Blank username');
+                    uname.style.border='solid 2px red';
+                    document.getElementById('label').style.visibility='visible';
+                    return false;
+                }
+                else if (password.value.trim()=='')
+                 {
+                    alert('Blank Password');
+                    password.style.border='solid 2px red';
+                    //document.getElementById('label').style.visibility='visible';
+                    return false;
+                }
+                else if (password.value.trim().length<6) 
+                {
+                     alert('Password too short');
+                      return false;
+                }
+                else
+                {
+                   true;
+                }
+                // body...
+            }
+        </script>
         
 
     </head>
 
     <body>
         
-    	<h1> Hii,Welcome to my website</h1>
-        <h2> I know your kinda surprised ! Soch rahe honge ki ye sab kya hi !!!</h2>
-        <h3> No worries!! yahape click karo if u wanna explore !!!!</h3>
-        <button><h3><a href="newpage.html"> Click meeee </a></h3></button>
+    	<form onsubmit="return validate()" action="newpage.html">
+         <input id='uname' placeholder='username' type="text" > 
+         <label id='label' style="color: red; visibility: hidden;">Invalid</label>
+         <br><br>
+         <input id='pass' placeholder='password' type="password" >
+         <br>
+         <br>
+         <button type="submit">Submit</button>
+
+        </form>
 
 		
     </body>
